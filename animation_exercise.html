@@ -9,7 +9,7 @@
 	<style>
 		* { padding: 0; margin: 0; }
 		body { font-family: sans-serif; font-size: 100%; margin: 10px; color: #222; background-color: #eee; }
-		#animate { position: absolute; top: 80px; left: 100px; width: 180px; height: 120px; font-size: 2em; text-align: center; line-height: 118px; color: #fff; background-color: #00c; border: 2px solid #006; border-radius: 5px; }
+		#animate { display:none; position: absolute; top: 80px; left: 100px; width: 180px; height: 120px; font-size: 2em; text-align: center; line-height: 118px; color: #fff; background-color: #00c; border: 2px solid #006; border-radius: 5px; }
 	</style>
 </head>
 <body>
@@ -19,9 +19,8 @@
 	<div id="animate">ANIMATE</div>
 	<script>
 		var a = $("#animate");
-		a.show(5000);
-		$.fx.speeds["very-slow"] = 1000;
-		a.hide("veryslow");
+        $.fx.speeds["very-slow"] = 5000;
+		a.show("very-slow").delay("very-slow").hide("very-slow");
 	</script>
 </body>
 </html>
