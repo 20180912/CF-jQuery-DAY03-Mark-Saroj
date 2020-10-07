@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+            crossorigin="anonymous"></script>
+    <script src="data.json"></script>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        var data = JSON.parse(images);
+        for (let i = 0; i < data.length; i++) {
+            $(".container").append(`<div id="${i}" class="img-container"><img id="img${i}"src='${data[i].image}'></div>`);
+            $(`#${i}`).append(`<br><span>Name: ${data[i].name}</span>`);
+            $(`#${i}`).append(`<br><span>Price: ${data[i].price}</span>`);
+            $(`#${i}`).append(`<br>Quantity:<button class = "minus"> - </button><span class ="quantity"> ${data[i].quantity}</span>`);
+           
+            if (data[i].name == 'phone') {
+                $(`#img${i}`).css("background-color", "green");
+            }
+            else if (data[i].name == 'Laptop') {
+                $(`#img${i}`).css("background-color", "red");
+            }
+            else if (data[i].name == 'tablet') {
+                $(`#img${i}`).css("background-color", "blue");
+            }
+        }
+        $(document).ready(function () {
+            $(".minus").on("click", function () {
+
+                var index = $(this).parent().attr("id");
+                data[index].quantity -= 1;
+                // dataObjects[index] = dataObjects[index] - 5;
+                $(this).parent().find(".quantity").html(data[index].quantity);
+                console.table(data);
+            })
+            $(".container").append(`<div id="7" class="img-container"><img id="img7"src='img/img7.jpg'></div>`);
+            $(`#7`).append(`<br><span>Name: Phone</span>`);
+            $(`#7`).append(`<br><span>Price: €999</span>`);
+            $(`#7`).append(`<br>Quantity:<span class ="quantity"> 50</span>`);
+
+        })
+        
+
+    </script>
+    
+
+</body>
+</html>
