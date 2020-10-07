@@ -38,8 +38,8 @@ footer
 
 div#moveme
 {
-	width: 6em;
-	height: 6em;
+	width: 50em;
+	height: 40em;
 	font-weight: bold;
 	line-height: 4em;
 	/*text-align: center;*/
@@ -49,6 +49,7 @@ div#moveme
 	overflow: visible;
 	/*border-radius: 5px;*/
 	/*cursor: default;*/
+	position: absolute
 }
 
 h1
@@ -73,4 +74,9 @@ a
 	text-decoration: none;
 	color: #00c;
 	margin: 0;
+}
+
+article
+{
+	overflow: hidden;
 }
